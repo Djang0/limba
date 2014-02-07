@@ -1,0 +1,23 @@
+install:
+
+Hi all. 
+
+I'm experiencing an error with the garbage collection when using session library. It happens randomly and not that often but it happens :)
+
+The error is:
+
+session_start() [function.session-start]: ps_files_cleanup_dir: opendir(/var/lib/php5) failed: Permission denied (13)
+
+I google a while to solve this problem and I found this:
+
+Frustratingly, if you do receive this error, you'll only get it once every hundred page loads on average. Which points to the cause of the problem: automatic session garbage collection. In Debian and Ubuntu, /var/lib/php5, where the session data is stored, has permissions of drwx-wx-wt and should only be cleaned by a cron script.
+
+Solutions found among others:
+- Prefixing the session call with '@' 
+- change the group to www-data and grant group read permissions with "chmod g+r" (slightly more secure than the one below)
+- change the directory permissions to be world-readable
+- disable garbage collection in the session config file
+
+Any thoughts on this? Did someone got the same error?
+
+(source : http://forum.kohanaframework.org/discussion/565/garbage-collector-error-with-sessions-on-debian/p1 )

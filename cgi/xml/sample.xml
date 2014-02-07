@@ -1,0 +1,68 @@
+<slideshow>
+
+	<slide>
+		<image url='/img/user/petra0.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra1.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra2.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra3.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra4.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra5.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra6.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra7.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra8.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra9.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra10.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+	
+	<slide>
+		<image url='/img/user/petra11.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+	<slide>
+		<image url='/img/user/petra12.jpg' background='FFFFFF' />
+		<transition duration='1' />
+	</slide>
+
+</slideshow>

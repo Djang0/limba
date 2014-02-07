@@ -1,0 +1,23 @@
+<div><h2>Reset your password </h2></div>
+<div id="resetForm">
+		{ERROR-HERE}
+			<form  ACCEPT-CHARSET="{encoding}" name="ResetPassword" action="{url}?/user/password/" method="post">
+				<fieldset class="inputs">
+					<p>
+						<input type="hidden" name="candidate" value="{candidate}"/>
+						<input type="hidden" name="email" value="{email}"/>
+						<label for="password">{pwslabel}</label> 
+						<input name="password" id="password" class="text" title="{pwsinfo}" alt="{pwsinfo}" type="password"/>
+					</p>
+					<p>
+						<label for="password2">{pws2label}</label> 
+						<input name="password2" id="password2" class="text" title="{pws2info}" alt="{pws2info}" type="password"/>
+					</p>	
+				</fieldset>
+				<fieldset class="buttons">
+					<p>
+						<input type="submit" value="{resetbutton}" alt="{resetbutton}" title="{resetbutton}" class="submit"/>
+					</p>
+				</fieldset>
+			</form>
+	</div>

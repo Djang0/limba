@@ -1,0 +1,124 @@
+
+<div id="userForm">
+	<fieldset class="champs">
+	<form  ACCEPT-CHARSET="{encoding}" name="adminEditUser" action="{url}" method="post"  onsubmit="selectValid('toBox');" >
+	<input type="hidden" name="targetusrid" value="{targetusrid}"/>
+	<table class="userFormTable">
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelNom}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{nomValue}" type="text" name="nom" title="{nominfo}" alt="{nominfo}" class="userFormInput"> 
+			</td>
+		
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelprenom}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{prenomvalue}" type="text" name="prenom" title="{prenominfo}" alt="{prenominfo}" class="userFormInput"> 
+			</td>
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelemail}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{emailvalue}" type="text" name="email" title="{emailinfo}" alt="{emailinfo}" class="userFormInput"> 
+			</td>
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelrue}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{ruevalue}" type="text" name="rue" title="{rueinfo}" alt="{rueinfo}" class="userFormInput"> 
+			</td>
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelnumero}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{numerovalue}" type="text" name="numero" title="{numeroinfo}" alt="{numeroinfo}" class="userFormInput"> 
+			</td>
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelzip}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{zipvalue}" type="text" name="zip" title="{zipinfo}" alt="{zipinfo}" class="userFormInput"> 
+			</td>
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelcity}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{cityvalue}" type="text" name="city" title="{cityinfo}" alt="{cityinfo}" class="userFormInput"> 
+			</td>
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelcountry}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{countryvalue}" type="text" name="country" title="{countryinfo}" alt="{countryinfo}" class="userFormInput"> 
+			</td>
+		</tr>
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labellng}
+			</th>
+			<td class="userFormTd"> 
+				{lnglist}
+			</td>
+		</tr>
+		
+		<tr class="userFormTr">
+			<th class="userFormTh"> 
+				{labelddn}
+			</th>
+			<td class="userFormTd"> 
+				<input value="{ddnvalue}" type="text" name="ddn" title="{ddninfo}" alt="{ddninfo}" class="w8em format-d-m-y" maxlength="10" id="finalDate" READONLY> <a href="#" class="date-picker-control" title="Show Calendar" id="fd-but-finalDate"><span>&nbsp;</span></a>
+			</td>
+		</tr>
+		{pwsblock}
+	</table>	
+	</fieldset>
+	<fieldset>
+		<legend>Groups</legend>
+		<TABLE border ="0">
+			<TR>
+				<TD style="text-align:center;">
+					<h2>{profAvaible}</h2>
+					<select name="from[]" id="fromBox" multiple="multiple" onmouseover="sortList('fromBox');" class="lsBox">
+						{fromoptions}
+					</select>
+				</TD>
+				<TD>
+					<input name="add" type="button" value="Add"	onclick="moveSelected('fromBox','toBox');" /> 
+					<input name="remove" type="button" value="Remove" onclick="moveSelected('toBox','fromBox');" />
+				</TD>
+				<TD style="text-align:center;">
+					<h2>{currentProfs}</h2>
+					<select name="too[]" id="toBox"	multiple="multiple" onmouseover="sortList('toBox');" class="lsBox">
+						{tooptions}
+					</select>
+				</TD>
+			</tr>
+		</TABLE>
+	</fieldset>
+	{WRAP-HERE}
+	<fieldset class="buttons">
+		<p>
+			
+			<!-- <input src="/common/images/user_edit_form.png" class="update" title="update" type="image"> -->
+			<input type="submit" value="{updtbutton}" alt="{updtbutton}" title="{updtbutton}" class="submit" style="float:right;">
+		</p>
+	</fieldset>
+	</form>
+</div>

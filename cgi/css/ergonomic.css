@@ -1,0 +1,104 @@
+@CHARSET "UTF-8";
+/**
+ * Project : Limba
+ * File : ergonomic.css
+ * Created by Ludovic Reenaers
+ * Created on  20 mar. 2011
+ * 
+ * Project site : http://code.google.com/p/limba
+ */
+ 
+ /**
+ * This css file is used to define basic css functionalities of limba. 
+ * If you intend to modify or customize it, it is strongly advized to edit ergonomic.custom.css or ergonomic.custom.ie.css.
+ * 
+ * Working this way allow you to easily switch from a layout derivation to an other, by simply overwriting ergonomic.custom's. 
+ *
+ */
+ 
+ 
+ /*--------------------------------------------------- DO NOT CHANGE BELOW ---------------------------------------------------*/
+ 
+ /*Page Structure css*/
+ 
+body{margin-top:0px;}
+div{}
+div#page{width:1024px;margin-left: auto;margin-right: auto;min-height:613px;padding-bottom:0px;}
+div#topBar{width:1024px;height:64px;}
+div#headerBar{width:1024px;}
+div#crumbBar{width:1024px;text-align: left;}
+div#leftCol{float:left;width:237px;padding-top:5px;padding-bottom:25px;padding-left:0px;margin-left:0px;}
+div#content{float:left;width:787px;padding-top:5px;padding-bottom:0px;margin-top:5px;text-align:center;}
+div#footBar{clear:both;width:100%;text-align: center;margin-top:0px;border-top: #999 1px solid;padding-top:6px;}
+/*--------------------------------------------------- DO NOT CHANGE ABOVE  ---------------------------------------------------*/
+/* Div Notify*/
+.notify {
+position: relative;
+display: inline-block;
+text-align: center;
+clear:both;
+margin-right:auto;
+margin-left:auto;
+}
+.up,.dwn {
+border-top-color: #FFF1A8;
+border-bottom-color: #FFF1A8;
+text-align: center;
+}
+.cnt {
+background: #FFF1A8;
+border-color: #FFF1A8;
+color: #021324;
+padding: 0 7px;
+border: 3px solid transparent;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+text-align: center;
+}
+
+/*BreadCrumb css*/
+.crumbs {border:1px solid #262425;height:2.3em;}
+.crumbs li {float:left;line-height:2.3em;padding-left:5px;color:#999;background-color:#262425}
+.crumbs li.current {background-color:#0097D4;font-weight: bolder;color:black;}
+.crumbs li a {display:block;padding:0 15px 0 0;background:url('/img/limba/crumbs.png') no-repeat right center;border:0px;}
+.crumbs li a:link, .crumbs li a:visited {text-decoration:none;color:#999;font-weight: bold;}
+.crumbs li a:hover, .crumbs li a:focus {color:white;font-weight: bold;}
+
+
+/*Language PAd css*/
+#languages{
+float:right;
+font-weight: bold;
+margin-bottom:0px;
+}
+div#languages li {float:left;line-height:30px;color:black;font-size: 16px;width: 38px;text-align: center;}
+div#languages li span{background-color: #7EC722;}
+div#languages li a, div#languages li span {display:block;padding-left:5px;padding-right:5px;padding-bottom:5px;padding-top:15px;}
+div#languages li a:link, #languagess li a:visited {text-decoration:none;color:white;}
+div#languages li a:hover, #languages li a:focus {color:black;background-color: #7EC722;}
+
+/* LEFT MENU*/
+
+
+/*CONTENT DATA*/
+#data {margin-left:10px;margin-right:10px;}
+
+/*Tabbed Navigation css */
+div.inactive {display: none;}
+ol#toc { top:0px;background: #383838 url('/img/internals/tabs_bg.gif');font-size: 10pt;height: 2.5em;list-style: none;margin:0px;overflow: hidden;padding: 0 60px 0 25px;position: relative;width: auto;}
+ol#toc a {background: #9b9b9b url('/img/internals/tabs.gif');color: #444;display: block;float: left;height: 2.5em;padding-left: 5px;text-decoration: none;}
+ol#toc a:hover {background-color: #d8d8d8;background-position: 0 -120px;color: #B1342F;}
+ol#toc a:hover span {background-position: 100% -120px;}
+ol#toc a:hover .active,ol#toc a.active {background-color: #f8f8f8;background-position: 0 -60px;color: #222;font-weight: bold;}
+ol#toc a:hover .active span,ol#toc a.active span {background-position: 100% -60px;}
+ol#toc li {float: left;margin: 0 3px 0 0;}
+ol#toc span {background: url('/img/internals/tabs.gif') 100% 0;cursor: pointer;display: block;float: left;line-height: 2em;padding: .5em 5px 0 0;}
+
+/*MODAL WINDOW CSS (fade in /fade out popup)*/
+#fade {display: none;background: #000;position: fixed; left: 0; top: 0;width: 100%; height: 100%;opacity: .80;z-index: 9999;}
+.popup_block{display: none;background: #fff;padding: 20px;border: 20px solid #ddd;float: left;position: fixed;top: 50%; left: 50%;z-index: 99999;-webkit-box-shadow: 0px 0px 20px #000;-moz-box-shadow: 0px 0px 20px #000;box-shadow: 0px 0px 20px #000;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;}
+img.btn_close {float: right;margin: -55px -55px 0 0;}
+/*--Making IE6 Understand Fixed Positioning for MODAL WINDOW--*/
+*html #fade {position: absolute;}
+*html .popup_block {position: absolute;}

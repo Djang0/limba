@@ -1,0 +1,58 @@
+
+<div id="profileForm">
+	<fieldset class="champs">
+	<form  ACCEPT-CHARSET="{encoding}" name="AdminProfile" action="{url}" method="post"  onsubmit="selectValid('toBox');" >
+	<input type="hidden" name="profId" value="{profid}"/>
+	<table class="profFormTable" border="0">
+		<tr class="profFormTr">
+			<th class="profFormTh"> 
+				{labelProfile}
+			</th>
+			<td class="profFormTd"> 
+				<input value="{profNameValue}" type="text" name="label" title="{profinfo}" alt="{profinfo}" class="profFormInput"> 
+			</td>
+		
+		</tr>
+		<tr class="profFormTr">
+			<th class="profFormTh"> 
+				{profComment}
+			</th>
+			<td class="profFormTd"> 
+				<input value="{commentvalue}" type="text" name="comment" title="{commentinfo}" alt="{commentinfo}" class="profFormInput"> 
+			</td>
+		</tr>
+	</table>	
+	</fieldset>
+	<fieldset>
+		<legend>Tokens</legend>
+		<TABLE border ="0">
+			<TR>
+				<TD style="text-align:center;">
+					<h2>{tokAvaible}</h2>
+					<select name="from[]" id="fromBox" multiple="multiple" onmouseover="sortList('fromBox');" class="lsBox">
+						{fromoptions}
+					</select>
+				</TD>
+				<TD>
+					<input name="add" type="button" value="Add"	onclick="moveSelected('fromBox','toBox');" /> 
+					<input name="remove" type="button" value="Remove" onclick="moveSelected('toBox','fromBox');" />
+				</TD>
+				<TD style="text-align:center;">
+					<h2>{currenttok}</h2>
+					<select name="too[]" id="toBox"	multiple="multiple" onmouseover="sortList('toBox');" class="lsBox">
+						{tooptions}
+					</select>
+				</TD>
+			</tr>
+		</TABLE>
+	</fieldset>
+	{WRAP-HERE}
+	<fieldset class="buttons">
+		<p>
+			
+			<!-- <input src="/common/images/user_edit_form.png" class="update" title="update" type="image"> -->
+			<input type="submit" value="{updtbutton}" alt="{updtbutton}" title="{updtbutton}" class="submit" style="float:right;">
+		</p>
+	</fieldset>
+	</form>
+</div>

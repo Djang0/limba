@@ -1,0 +1,14 @@
+Package: limba
+Version: 0.1
+Architecture: all
+Source: limba
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Ludovic Reenaers <lreenaers@ressource-toi.org>
+Depends: libapache2-mod-php5 | libapache2-mod-php5filter | php5-cgi | php5-fpm | php5, php5-mysql | php5-mysqli, php5-mcrypt, perl, debconf (>= 0.5) | debconf-2.0, dbconfig-common, ttf-dejavu-core, ucf (>= 0.28)
+Recommends: apache2 | lighttpd | httpd, php5-gd, mysql-client
+Suggests: mysql-server, www-browser
+Section: web
+Priority: extra
+Homepage: http://www.limba-cms.eu/
+Description: Limba is a lightweight CMS written in php
+ This package helps you publishing and maintaining web content through a web interface.

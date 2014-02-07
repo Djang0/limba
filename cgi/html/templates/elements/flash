@@ -1,0 +1,9 @@
+ <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="198" HEIGHT="120" id="slideshow">
+    <PARAM NAME="movie" VALUE="slideshow.swf?xml_source=/xml/sample.xml" />
+    <PARAM NAME="quality" VALUE="high" />
+    <PARAM NAME="bgcolor" VALUE="#FFFFFF" />
+    <param name="allowScriptAccess" value="sameDomain" />
+
+    <EMBED src="/img/user/slider.swf?xml_source=/xml/sample.xml" quality="high" bgcolor="#FFFFFF" WIDTH="198" HEIGHT="120" NAME="slideshow" allowScriptAccess="sameDomain" swLiveConnect="true" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+    </EMBED>
+</OBJECT>

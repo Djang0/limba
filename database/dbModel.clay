@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clay-model clay-version="2.0.1">
+<database-model author="" begin-script="" end-script="" id="a03c20:12a605e8dd8:-8000" name="dbModel" sql-dialect-id="jp.azzurri.clay.dialect.MySQL_5_0_Dialect" version="1.0">
+<schema-list>
+<schema id="a03c20:12a605e8dd8:-7ffd" name="DEFAULT_SCHEMA">
+<table-list>
+<table alias="Langues" id="a03c20:12a605e8dd8:-7fff" name="LANGUES" remarks="les langues supportées par le système">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="a03c20:12a605e8dd8:-7ffa" mandatory="true" name="ID" remarks="PK">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Iso" auto-increment="false" column-size="5" decimal-digits="0" default-value="" id="a03c20:12a605e8dd8:-7ff9" mandatory="true" name="ISO" remarks="notation iso de la langue">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column alias="Ordered" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="ca548b:12a64e42a99:-7cab" mandatory="true" name="ORDERED">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Available" auto-increment="false" column-size="0" decimal-digits="0" default-value="true" id="14a0b92:12aa41137cf:-7fb4" mandatory="false" name="AVAILABLE">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Is Default" auto-increment="false" column-size="0" decimal-digits="0" default-value="false" id="bcdb74:12b8038ead0:-7f6f" mandatory="false" name="IS_DEFAULT" remarks="only one language can be true for this property">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+</column-list>
+<primary-key id="a03c20:12a605e8dd8:-7ffe" name="PK_LANGUES">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key alias="Uq Langues 1" id="101828:12aa7db87b6:-7f1c" name="UQ_LANGUES_1">
+<unique-key-column name="ISO"/>
+</unique-key>
+</unique-key-list>
+</table>
+<table alias="Langue Info" id="a03c20:12a605e8dd8:-7ff8" name="LANGUE_INFO" remarks="nom complet de la langue. multilingue">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="a03c20:12a605e8dd8:-7ff4" mandatory="true" name="ID" remarks="PK">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Langue Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="a03c20:12a605e8dd8:-7ff3" mandatory="true" name="LANGUE_ID" remarks="ID de la langue concernée">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="a03c20:12a605e8dd8:-7ff2" mandatory="true" name="LABEL" remarks="valeur d'affichage">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Langue Traduction Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7ff6" mandatory="true" name="LANGUE_TRADUCTION_ID" remarks="id de la langue de traduction du label de la langue concernée">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="a03c20:12a605e8dd8:-7ff7" name="PK_LANGUE_INFO">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key alias="Uq Langue Label 1" id="1a7f14f:12a609b9b1e:-7f51" name="UQ_LANGUE_LABEL_1" remarks="unes seule traduction par language pour une langue donnée">
+<unique-key-column name="LANGUE_ID"/>
+<unique-key-column name="LANGUE_TRADUCTION_ID"/>
+</unique-key>
+</unique-key-list>
+<foreign-key-list>
+<foreign-key alias="Fk Langue Label 1" id="a03c20:12a605e8dd8:-7fe1" name="FK_LANGUE_LABEL_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1..*" target-relationship-type="">
+<foreign-key-column column-name="LANGUE_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Langue Label 2" id="1a7f14f:12a609b9b1e:-7fde" name="FK_LANGUE_LABEL_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LANGUE_TRADUCTION_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Categories" id="1a7f14f:12a609b9b1e:-7f57" name="CATEGORIES" remarks="catégories de navigation">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7f53" mandatory="true" name="ID" remarks="PK">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Parent Cat Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7f52" mandatory="true" name="PARENT_CAT_ID" remarks="ID de la catégorie parent">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Is Root" auto-increment="false" column-size="0" decimal-digits="0" default-value="false" id="1805b5:12b3de30747:-7fb2" mandatory="true" name="IS_ROOT">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Owner Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fb9" mandatory="true" name="OWNER_ID" remarks="used for permission">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Group Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fb8" mandatory="true" name="GROUP_ID" remarks="used for permission">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Perm Bin" auto-increment="false" column-size="12" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fb7" mandatory="true" name="PERM_BIN" remarks="Permission Binary : 12 char only 1 or 0">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Visible" auto-increment="false" column-size="0" decimal-digits="0" default-value="true" id="358a6d30:12e055527f3:-7fae" mandatory="true" name="VISIBLE" remarks="true if category and children are visible in menu tree">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Created" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7fad" mandatory="true" name="CREATED">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column alias="Updated" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7fac" mandatory="true" name="UPDATED">
+<data-type name="TIMESTAMP" selected-variant-pattern="TIMESTAMP"/>
+</column>
+<column alias="Alternate" auto-increment="false" column-size="50" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7fab" mandatory="false" name="ALTERNATE" remarks="Alternate modul/action to deviate from normal Model/view behaviour">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Position" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7faa" mandatory="true" name="POSITION" remarks="Order position within parent category">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1a7f14f:12a609b9b1e:-7f56" name="PK_CATEGORIES">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key alias="Fk Categories 2" id="dd5b9b:12ce41ae1da:-7d8c" name="FK_CATEGORIES_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_PROFILE" referenced-table="PROFILE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="GROUP_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Categories 1" id="dd5b9b:12ce41ae1da:-7e7b" name="FK_CATEGORIES_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_USER" referenced-table="USER" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="OWNER_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Categories Info" id="1a7f14f:12a609b9b1e:-7f50" name="CATEGORIES_INFO" remarks="table de jointure multilingue pour les catégories">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7fb1" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Cat Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7f4c" mandatory="true" name="CAT_ID" remarks="ID  de la catégorie concernée">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Lng Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7f4b" mandatory="true" name="LNG_ID" remarks="ID de la langue de traduction des info de catégories">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="100" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7f4a" mandatory="true" name="LABEL" remarks="Nom d'affichage de la catégorie pour une langue donnée">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Tooltip" auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7f49" mandatory="false" name="TOOLTIP" remarks="infobulle de la catégorie pour une langue donnée">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="1a7f14f:12a609b9b1e:-7f4f" name="PK_CATEGORIES_INFO">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key alias="Uq Categories Info 1" id="1a7f14f:12a609b9b1e:-7ec7" name="UQ_CATEGORIES_INFO_1" remarks="une seule info par couple catégorie / langue">
+<unique-key-column name="CAT_ID"/>
+<unique-key-column name="LNG_ID"/>
+</unique-key>
+</unique-key-list>
+<foreign-key-list>
+<foreign-key alias="Fk Categories Info 1" id="1a7f14f:12a609b9b1e:-7f12" name="FK_CATEGORIES_INFO_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_CATEGORIES" referenced-table="CATEGORIES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="CAT_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Categories Info 2" id="1a7f14f:12a609b9b1e:-7ee3" name="FK_CATEGORIES_INFO_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LNG_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Documents" id="1a7f14f:12a609b9b1e:-7e50" name="DOCUMENTS">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7e4c" mandatory="true" name="ID" remarks="id du document">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Parent Cat Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7e4b" mandatory="true" name="PARENT_CAT_ID" remarks="id de la catégorie">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Type Document" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="141ab78:12c7cebc4c4:-7fa6" mandatory="true" name="TYPE_DOCUMENT">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Owner Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fb4" mandatory="true" name="OWNER_ID" remarks="user for permission">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Group Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fb3" mandatory="true" name="GROUP_ID" remarks="used for permission ">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Perm Bin" auto-increment="false" column-size="12" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fb2" mandatory="true" name="PERM_BIN" remarks="permission binary 12 char only 1 and 0">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Visible" auto-increment="false" column-size="0" decimal-digits="0" default-value="true" id="358a6d30:12e055527f3:-7fa7" mandatory="true" name="VISIBLE" remarks="true if document should be visible in menu tree">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Created" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7fa6" mandatory="true" name="CREATED">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column alias="Updated" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7fa5" mandatory="true" name="UPDATED">
+<data-type name="TIMESTAMP" selected-variant-pattern="TIMESTAMP"/>
+</column>
+<column alias="Position" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7fa4" mandatory="true" name="POSITION">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Alternate" auto-increment="false" column-size="50" decimal-digits="0" default-value="" id="358a6d30:12e055527f3:-7fa3" mandatory="false" name="ALTERNATE" remarks="Alternate module/action to use instead of usual Model / view settings">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="1a7f14f:12a609b9b1e:-7e4f" name="PK_DOCUMENTS">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key alias="Fk Documents 1" id="1a7f14f:12a609b9b1e:-7e3b" name="FK_DOCUMENTS_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_CATEGORIES" referenced-table="CATEGORIES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="PARENT_CAT_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Documents 3" id="141ab78:12c7cebc4c4:-7f84" name="FK_DOCUMENTS_3" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_TYPE_DOCUMENT" referenced-table="TYPE_DOCUMENT" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="TYPE_DOCUMENT" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Documents 4" id="dd5b9b:12ce41ae1da:-7d23" name="FK_DOCUMENTS_4" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_USER" referenced-table="USER" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="OWNER_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key id="dd5b9b:12ce41ae1da:-7ce8" name="FK_DOCUMENTS_5" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_PROFILE" referenced-table="PROFILE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="GROUP_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Document Info" id="1a7f14f:12a609b9b1e:-7d16" name="DOCUMENT_INFO">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7fb4" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Doc Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7d12" mandatory="true" name="DOC_ID" remarks="id du document concerné">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Lng Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7d11" mandatory="true" name="LNG_ID" remarks="ID de la langue des info">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="100" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7d10" mandatory="true" name="LABEL" remarks="nom d'affichage du document">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Tooltip" auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7d0f" mandatory="false" name="TOOLTIP" remarks="infobulle du document">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="1a7f14f:12a609b9b1e:-7d15" name="PK_DOCUMENT_INFO">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key alias="Uq Document Info 1" id="1a7f14f:12a609b9b1e:-7cbc" name="UQ_DOCUMENT_INFO_1" remarks="une seule info par couple doc / langue">
+<unique-key-column name="DOC_ID"/>
+<unique-key-column name="LNG_ID"/>
+</unique-key>
+</unique-key-list>
+<foreign-key-list>
+<foreign-key alias="Fk Document Info 1" id="1a7f14f:12a609b9b1e:-7cfb" name="FK_DOCUMENT_INFO_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_DOCUMENTS" referenced-table="DOCUMENTS" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="DOC_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Document Info 2" id="1a7f14f:12a609b9b1e:-7cd4" name="FK_DOCUMENT_INFO_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LNG_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Property" id="1a7f14f:12a609b9b1e:-7b9b" name="PROPERTY">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7b97" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Is Default" auto-increment="false" column-size="0" decimal-digits="0" default-value="false" id="1a7f14f:12a609b9b1e:-7b96" mandatory="true" name="IS_DEFAULT">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Type Property Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1e85adf:12aad1dfcde:-7de1" mandatory="true" name="TYPE_PROPERTY_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="List Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1346812:12ac6bc48b1:-7f68" mandatory="false" name="LIST_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Type Document" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="9202ca:12cc076bfe7:-7f64" mandatory="false" name="TYPE_DOCUMENT" remarks="only if property is not a child">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Parent Prop" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="9202ca:12cc076bfe7:-7f0f" mandatory="false" name="PARENT_PROP">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Css Class" auto-increment="false" column-size="12" decimal-digits="0" default-value="" id="12719a0:12cee11936e:-7fae" mandatory="false" name="CSS_CLASS">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Css Id" auto-increment="false" column-size="12" decimal-digits="0" default-value="" id="12719a0:12cee11936e:-7fad" mandatory="false" name="CSS_ID">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Validation Method" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="d52ea:12f05ea5de2:-7fae" mandatory="false" name="VALIDATION_METHOD">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Nable" auto-increment="false" column-size="0" decimal-digits="0" default-value="false" id="180fd6:12f95e50573:-7fb1" mandatory="true" name="NABLE">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+</column-list>
+<primary-key id="1a7f14f:12a609b9b1e:-7b9a" name="PK_PROPERTY">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key alias="Fk Property 2" id="1e85adf:12aad1dfcde:-7dae" name="FK_PROPERTY_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_TYPE_PROPERTY" referenced-table="TYPE_PROPERTY" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="TYPE_PROPERTY_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key id="1346812:12ac6bc48b1:-7f98" name="FK_PROPERTY_3" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LIST" referenced-table="LIST" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LIST_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Property 4" id="9202ca:12cc076bfe7:-7f3f" name="FK_PROPERTY_4" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_TYPE_DOCUMENT" referenced-table="TYPE_DOCUMENT" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="TYPE_DOCUMENT" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Property Info" id="1a7f14f:12a609b9b1e:-7b4b" name="PROPERTY_INFO">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="1346812:12ac6bc48b1:-7e1c" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Prop Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7b47" mandatory="true" name="PROP_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Lng Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7b46" mandatory="true" name="LNG_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="100" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7b45" mandatory="true" name="LABEL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Tooltip" auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7b44" mandatory="false" name="TOOLTIP">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="1a7f14f:12a609b9b1e:-7b4a" name="PK_PROPERTY_INFO">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key alias="Fk Property Info 1" id="1a7f14f:12a609b9b1e:-7b06" name="FK_PROPERTY_INFO_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LNG_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Property Info 2" id="1a7f14f:12a609b9b1e:-7abd" name="FK_PROPERTY_INFO_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_PROPERTY" referenced-table="PROPERTY" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="PROP_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Property Values" id="1a7f14f:12a609b9b1e:-7a8e" name="PROPERTY_VALUES">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="ca548b:12a64e42a99:-7cae" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Prop Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7a8a" mandatory="true" name="PROP_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Lng Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7a89" mandatory="true" name="LNG_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Value Short" auto-increment="false" column-size="100" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7a88" mandatory="false" name="VALUE_SHORT">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Value Long" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1a7f14f:12a609b9b1e:-7a87" mandatory="false" name="VALUE_TEXT">
+<data-type name="TEXT" selected-variant-pattern="TEXT"/>
+</column>
+<column alias="Word Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1346812:12ac6bc48b1:-7ec4" mandatory="false" name="WORD_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Value Date From" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1346812:12ac6bc48b1:-7e71" mandatory="false" name="VALUE_DATE_FROM">
+<data-type name="DATE" selected-variant-pattern="DATE"/>
+</column>
+<column alias="Value Date To" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1d53277:12b0f1cf961:-7fb2" mandatory="false" name="VALUE_DATE_TO">
+<data-type name="DATE" selected-variant-pattern="DATE"/>
+</column>
+<column auto-increment="false" column-size="6" decimal-digits="0" default-value="" id="1d53277:12b0f1cf961:-7fb1" mandatory="false" name="DURATION">
+<data-type name="SMALLINT" selected-variant-pattern="SMALLINT(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="false" id="1d53277:12b0f1cf961:-7fb0" mandatory="false" name="CHECKED">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Document Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="9202ca:12cc076bfe7:-7e72" mandatory="true" name="DOCUMENT_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Child Doc Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="ea95e0:133cfe99d49:-7faf" mandatory="false" name="CHILD_DOC_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1a7f14f:12a609b9b1e:-7a8d" name="PK_PROPERTY_VALUES">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key alias="Fk Property Values 2" id="1a7f14f:12a609b9b1e:-7a2b" name="FK_PROPERTY_VALUES_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LNG_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Property Values 1" id="1a7f14f:12a609b9b1e:-7a71" name="FK_PROPERTY_VALUES_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_PROPERTY" referenced-table="PROPERTY" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="PROP_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Property Values 4" id="9202ca:12cc076bfe7:-7efd" name="FK_PROPERTY_VALUES_4" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_DOCUMENTS" referenced-table="DOCUMENTS" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="DOCUMENT_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key id="1e0f493:12f72c1f7eb:-7edc" name="FK_PROPERTY_VALUES_5" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_WORDS" referenced-table="WORDS" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="WORD_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="User" id="101828:12aa7db87b6:-7ed0" name="USER">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ecc" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Name" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ecb" mandatory="true" name="NAME">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Surname" auto-increment="false" column-size="40" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7eca" mandatory="true" name="SURNAME">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Pseudo" auto-increment="false" column-size="20" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec9" mandatory="true" name="PSEUDO">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Email" auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec8" mandatory="true" name="EMAIL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Street" auto-increment="false" column-size="50" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec7" mandatory="false" name="STREET">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Number" auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec6" mandatory="false" name="NUMBER">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Zip" auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec5" mandatory="false" name="ZIP">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="City" auto-increment="false" column-size="50" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec4" mandatory="false" name="CITY">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Country" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec3" mandatory="false" name="COUNTRY">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Langue Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec2" mandatory="true" name="LANGUE_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Last Ip" auto-increment="false" column-size="15" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec1" mandatory="false" name="LAST_IP" remarks="DDN">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Created" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ec0" mandatory="false" name="CREATED">
+<data-type name="TIMESTAMP" selected-variant-pattern="TIMESTAMP"/>
+</column>
+<column alias="Last Connected" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ebf" mandatory="false" name="LAST_CONNECTED">
+<data-type name="TIMESTAMP" selected-variant-pattern="TIMESTAMP"/>
+</column>
+<column alias="Pws Hash" auto-increment="false" column-size="32" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7ebe" mandatory="true" name="PWS_HASH">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Active" auto-increment="false" column-size="0" decimal-digits="0" default-value="true" id="101828:12aa7db87b6:-7ebc" mandatory="false" name="ACTIVE">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Ddn" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1e85adf:12aad1dfcde:-7f43" mandatory="false" name="DDN">
+<data-type name="DATE" selected-variant-pattern="DATE"/>
+</column>
+</column-list>
+<primary-key id="101828:12aa7db87b6:-7ecf" name="PK_USER">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key alias="Uq User 1" id="101828:12aa7db87b6:-7e8b" name="UQ_USER_1">
+<unique-key-column name="EMAIL"/>
+</unique-key>
+</unique-key-list>
+<foreign-key-list>
+<foreign-key alias="Fk User 1" id="101828:12aa7db87b6:-7ea2" name="FK_USER_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LANGUE_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Profile" id="101828:12aa7db87b6:-7e8a" name="PROFILE">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7e86" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7e85" mandatory="false" name="LABEL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Comment" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7e84" mandatory="false" name="COMMENT">
+<data-type name="TEXT" selected-variant-pattern="TEXT"/>
+</column>
+<column alias="Available" auto-increment="false" column-size="0" decimal-digits="0" default-value="true" id="1e85adf:12aad1dfcde:-7fa5" mandatory="false" name="AVAILABLE">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+</column-list>
+<primary-key id="101828:12aa7db87b6:-7e89" name="PK_PROFILE">
+<primary-key-column name="ID"/>
+</primary-key>
+</table>
+<table alias="Token" id="101828:12aa7db87b6:-7e4b" name="TOKEN" remarks="Only allowed functionality token">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7e47" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="101828:12aa7db87b6:-7e46" mandatory="true" name="LABEL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="101828:12aa7db87b6:-7e4a" name="PK_TOKEN">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key alias="Uq Token 1" id="dd5b9b:12ce41ae1da:-7ea1" name="UQ_TOKEN_1">
+<unique-key-column name="LABEL"/>
+</unique-key>
+</unique-key-list>
+</table>
+<table alias="Type Property" id="1e85adf:12aad1dfcde:-7dea" name="TYPE_PROPERTY">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="1e85adf:12aad1dfcde:-7de6" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="20" decimal-digits="0" default-value="" id="1e85adf:12aad1dfcde:-7de5" mandatory="true" name="LABEL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Comment" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1e85adf:12aad1dfcde:-7de4" mandatory="false" name="COMMENT">
+<data-type name="TEXT" selected-variant-pattern="TEXT"/>
+</column>
+<column alias="Is Container" auto-increment="false" column-size="0" decimal-digits="0" default-value="false" id="9202ca:12cc076bfe7:-7f0c" mandatory="true" name="IS_CONTAINER">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+<column alias="Method" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="12719a0:12cee11936e:-7f0a" mandatory="true" name="METHOD">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="1e85adf:12aad1dfcde:-7de9" name="PK_TYPE_PROPERTY">
+<primary-key-column name="ID"/>
+</primary-key>
+</table>
+<table alias="List" id="1346812:12ac6bc48b1:-7fbe" name="LIST">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="1346812:12ac6bc48b1:-7fba" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="20" decimal-digits="0" default-value="" id="1346812:12ac6bc48b1:-7fb9" mandatory="true" name="LABEL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="1346812:12ac6bc48b1:-7fbd" name="PK_LIST">
+<primary-key-column name="ID"/>
+</primary-key>
+</table>
+<table alias="Words" id="12b978e:12c11b76da4:-7fba" name="WORDS">
+<table-description>I18n Table</table-description>
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="12b978e:12c11b76da4:-7fb6" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Name" auto-increment="false" column-size="40" decimal-digits="0" default-value="" id="12b978e:12c11b76da4:-7fb5" mandatory="true" name="NAME">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="List Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1e0f493:12f72c1f7eb:-7fac" mandatory="false" name="LIST_ID" remarks="optinale... only if belongs to a list">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="12b978e:12c11b76da4:-7fb9" name="PK_WORDS">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key alias="Uq Words 1" id="18e7a09:12c167862b3:-7f66" name="UQ_WORDS_1">
+<unique-key-column name="NAME"/>
+</unique-key>
+</unique-key-list>
+<foreign-key-list>
+<foreign-key id="1e0f493:12f72c1f7eb:-7f8c" name="FK_WORDS_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LIST" referenced-table="LIST" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LIST_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Translation" id="12b978e:12c11b76da4:-7fb4" name="TRANSLATION">
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="12b978e:12c11b76da4:-7fb0" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Word Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="12b978e:12c11b76da4:-7faf" mandatory="true" name="WORD_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Lng Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="12b978e:12c11b76da4:-7fae" mandatory="true" name="LNG_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="12b978e:12c11b76da4:-7fad" mandatory="true" name="LABEL">
+<data-type name="TEXT" selected-variant-pattern="TEXT"/>
+</column>
+</column-list>
+<primary-key id="12b978e:12c11b76da4:-7fb3" name="PK_TRANSLATION">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key alias="Fk Translation 1" id="12b978e:12c11b76da4:-7f95" name="FK_TRANSLATION_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_LANGUES" referenced-table="LANGUES" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="LNG_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Translation 2" id="12b978e:12c11b76da4:-7f5e" name="FK_TRANSLATION_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_WORDS" referenced-table="WORDS" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="WORD_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Type Document" id="141ab78:12c7cebc4c4:-7fb0" name="TYPE_DOCUMENT">
+<table-description>This is the type of the document object. i.e  : Contact, Article,...</table-description>
+<column-list>
+<column alias="Id" auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="141ab78:12c7cebc4c4:-7faa" mandatory="true" name="ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Label" auto-increment="false" column-size="30" decimal-digits="0" default-value="" id="141ab78:12c7cebc4c4:-7fa9" mandatory="true" name="LABEL">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Available" auto-increment="false" column-size="0" decimal-digits="0" default-value="true" id="141ab78:12c7cebc4c4:-7f15" mandatory="true" name="AVAILABLE">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+</column-list>
+<primary-key id="141ab78:12c7cebc4c4:-7faf" name="PK_TYPE_DOCUMENT">
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list>
+<unique-key id="7f5e2eef:12ea3f4d476:-7fb0" name="UQ_TYPE_DOCUMENT_1">
+<unique-key-column name="LABEL"/>
+</unique-key>
+</unique-key-list>
+</table>
+<table alias="Groups" id="dd5b9b:12ce41ae1da:-7fb1" name="GROUPS">
+<column-list>
+<column alias="Profile Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fad" mandatory="true" name="PROFILE_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="User Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7fac" mandatory="true" name="USER_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="dd5b9b:12ce41ae1da:-7fb0" name="PK_GROUPS"/>
+<foreign-key-list>
+<foreign-key alias="Fk Groups 1" id="dd5b9b:12ce41ae1da:-7f7d" name="FK_GROUPS_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_USER" referenced-table="USER" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="USER_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key id="dd5b9b:12ce41ae1da:-7f44" name="FK_GROUPS_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_PROFILE" referenced-table="PROFILE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="PROFILE_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Tokens" id="dd5b9b:12ce41ae1da:-7eff" name="TOKENS">
+<column-list>
+<column alias="Token Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7efb" mandatory="true" name="TOKEN_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Profile Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="dd5b9b:12ce41ae1da:-7efa" mandatory="true" name="PROFILE_ID">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="dd5b9b:12ce41ae1da:-7efe" name="PK_TOKENS"/>
+<foreign-key-list>
+<foreign-key alias="Fk Tokens 1" id="dd5b9b:12ce41ae1da:-7eea" name="FK_TOKENS_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_PROFILE" referenced-table="PROFILE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="PROFILE_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="Fk Tokens 2" id="dd5b9b:12ce41ae1da:-7ec6" name="FK_TOKENS_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_TOKEN" referenced-table="TOKEN" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="TOKEN_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+<diagram>
+<table-figure height="100" refid="a03c20:12a605e8dd8:-7fff" width="143" x="782" y="347"/>
+<table-figure height="102" refid="a03c20:12a605e8dd8:-7ff8" width="251" x="5" y="248"/>
+<table-figure height="190" refid="1a7f14f:12a609b9b1e:-7f57" width="186" x="43" y="733"/>
+<table-figure height="99" refid="1a7f14f:12a609b9b1e:-7f50" width="153" x="388" y="580"/>
+<table-figure height="185" refid="1a7f14f:12a609b9b1e:-7e50" width="197" x="528" y="819"/>
+<table-figure height="107" refid="1a7f14f:12a609b9b1e:-7d16" width="160" x="694" y="578"/>
+<table-figure height="188" refid="1a7f14f:12a609b9b1e:-7b9b" width="233" x="1425" y="764"/>
+<table-figure height="102" refid="1a7f14f:12a609b9b1e:-7b4b" width="172" x="1409" y="516"/>
+<table-figure height="223" refid="1a7f14f:12a609b9b1e:-7a8e" width="247" x="1065" y="990"/>
+<table-figure height="297" refid="101828:12aa7db87b6:-7ed0" width="214" x="474" y="5"/>
+<table-figure height="88" refid="101828:12aa7db87b6:-7e8a" width="161" x="1207" y="20"/>
+<table-figure height="73" refid="101828:12aa7db87b6:-7e4b" width="164" x="1573" y="32"/>
+<table-figure height="107" refid="1e85adf:12aad1dfcde:-7dea" width="179" x="1439" y="1074"/>
+<table-figure height="67" refid="1346812:12ac6bc48b1:-7fbe" width="138" x="1603" y="447"/>
+<table-figure height="68" refid="12b978e:12c11b76da4:-7fba" width="129" x="1306" y="258"/>
+<table-figure height="100" refid="12b978e:12c11b76da4:-7fb4" width="145" x="923" y="181"/>
+<table-figure height="117" refid="141ab78:12c7cebc4c4:-7fb0" width="155" x="916" y="783"/>
+<table-figure height="58" refid="dd5b9b:12ce41ae1da:-7fb1" width="196" x="880" y="27"/>
+<table-figure height="61" refid="dd5b9b:12ce41ae1da:-7eff" width="158" x="1395" y="169"/>
+</diagram>
+</clay-model>

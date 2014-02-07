@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+/**
+ * Project : Limba
+ * File : ergonomic.custom.css
+ * Created by Ludovic Reenaers
+ * Created on  22 mar. 2011
+ * 
+ * Project site : http://code.google.com/p/limba
+ */
+
+ /**
+ * Here is the place to write additional css rules or to provide cascading layout derivation.
+ *
+ */
+body,html{
+	background-color:#0097D4;
+	background-image: url('/img/limba/bg-header_56px.gif');
+	background-repeat: repeat-x;
+}
+div#footBar{
+		background-color:#262425;
+		padding-bottom: 10px;
+	}
+div#content{color:#999;padding:0px;background-color:#262425;}
+div#data{background-color:#262425;margin:0px;padding:10px;text-align: left;}
+
+/*Google maps popup additional css*/
+div#popup_name ul{margin: 5px 10px 5px 5px;padding: 3px;text-align: right;background-color: #B1342F;}
+div#selector{}
+div.light{}
+span.typpoi{border-width : 0px;background-color: #6C5344;margin:3px;padding:3px;}
+div#popup_name  li{list-style-type: none;margin : 0px;padding: 0px;text-align: left;}
+div#popup_name  li.lipair{list-style-type: none;background-color: #6C5344;}
+div#popup_name  li.liimpair{list-style-type: none;background-color: #896E5B;}

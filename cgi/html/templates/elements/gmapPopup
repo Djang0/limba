@@ -1,0 +1,12 @@
+<div id="popup_name" class="popup_block">
+    <div id="selector" style="float:left;width:20%; height:100%">
+				<span class="typpoi"><input type="checkbox" name="typ" value="musee" onclick="validateMarker(this);" CHECKED> musee </span><span class="typpoi"> <input type="checkbox" name="typ" value="musee b" onclick="validateMarker(this);" CHECKED> musee b</span> 
+				<ul id="waypoints"></ul>
+				<div class="light"><small><input type="checkbox" id ="optim" CHECKED />Optimiser le trajet?</small><br/></div>
+				<input type="button" onclick="calcRoute();" value ="Calculer itin�raire"/>
+				<div id="maptools"></div>
+				<div id="routePanel"></div>
+	</div>
+<div id="map_canvas" style="float:right;width:80%; height:100%"></div>
+
+</div>

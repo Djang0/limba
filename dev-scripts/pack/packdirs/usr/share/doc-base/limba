@@ -1,0 +1,12 @@
+Document: limba
+title: Limba documentation
+Author: Ludovic Reenaers <lreenaers@ressource-toi.org>
+Abstract: This manual describes how to use Limba.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/index.html
+Files: /usr/share/doc/index.html
+
+Format: text
+Files: /usr/share/doc/Documentation.txt.gz

@@ -1,0 +1,80 @@
+#!/bin/sh
+# postrm script for limba
+
+set -e
+apache_remove() {
+	if [ -d /etc/$webserver/sites-enabled ] && [ -d /etc/$webserver/sites-available ] && [ -L /etc/$webserver/sites-enabled/limba ] && [ -L /etc/$webserver/sites-available/limba ]; then
+		sudo rm -f /etc/$webserver/sites-enabled/limba
+		sudo rm -f /etc/$webserver/sites-available/limba
+	fi
+}
+if [ -f /usr/share/debconf/confmodule ]; then
+    . /usr/share/debconf/confmodule
+fi
+if [ -f /usr/share/dbconfig-common/dpkg/postrm.mysql ]; then
+    . /usr/share/dbconfig-common/dpkg/postrm.mysql
+    if ! dbc_go limba $@ ; then
+        echo 'Automatic configuration using dbconfig-common failed!'
+    fi
+fi
+
+if [ "$1" = "purge" ]; then
+    rm -f /etc/limba/config-db.php
+    if which ucf >/dev/null 2>&1; then
+	ucf --debconf-ok --purge /etc/limba/config-db.php
+    fi
+fi
+
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+
+	if [ -f /usr/share/debconf/confmodule ]; then
+		db_version 2.0
+
+		db_get limba/reconfigure-webserver
+
+		webservers="$RET"
+
+		for webserver in $webservers; do
+			webserver=${webserver%,}
+			if [ "$webserver" = "lighttpd" ] ; then
+				lighttpd_remove
+			else
+				apache_remove $webserver
+			fi
+			# Redirection of 3 is needed because Debconf uses it and it might 
+			# be inherited by webserver.
+			if [ -f /etc/init.d/$webserver ] ; then
+				if [ -x /usr/sbin/invoke-rc.d ]; then
+					invoke-rc.d $webserver reload 3>/dev/null || true
+				else
+					/etc/init.d/$webserver reload 3>/dev/null || true
+				fi
+			fi
+		done
+	fi
+
+
+	if [ "$1" = "purge" ]; then
+        # Possibly installed desktop file
+        if [ -h /usr/share/applications/limba.desktop ] ; then
+            rm -f /usr/share/applications/limba.desktop
+        fi
+        if [ -h /etc/avahi/services/limba.service ] ; then
+            rm -f /etc/avahi/services/limba.service
+        fi
+		rm -rf /etc/limba /var/lib/limba
+	fi
+fi
+
+
+# Automatically added by dh_installdebconf
+if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+	db_purge
+fi
+# End automatically added section
+
+
+exit 0
+
+

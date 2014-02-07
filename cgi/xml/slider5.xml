@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<album 
+  showbuttons="no"
+  showtitles="yes"
+  showrandom="no"
+  randomstart="no"
+  timer="5"
+  aligntitles="bottom"
+  alignbuttons="top"
+  transition="blur"
+  speed="20"
+>
+	<img src="/img/user/1.jpg" title="Ballade pedestre a Villers-la-Ville" />
+	<img src="/img/user/img/2.jpg" title="Balade a Velo" />
+	<img src="/img/user/img/3.jpg" title="La chambre echevinale" />
+	<img src="/img/user/img/4.jpg" title="La chapelle Triolet" />
+	<img src="/img/user/img/5.jpg" title="Le donjon" />
+	<img src="/img/user/6.jpg" title="L'eglise Mellet" />
+	<img src="/img/user/7.jpg" title="La ferme du Perbais a Chastre" />
+	<img src="/img/user/8.jpg" title="Le musee touraille" />
+</album>

@@ -1,0 +1,44 @@
+<div><h2>{title}</h2></div>
+<div id="loginForm">
+		
+		{ERROR-HERE}
+			<form  ACCEPT-CHARSET="{encoding}" name="LoginUser" action="{url}?/user/authenticate/" method="post">
+				<fieldset class="inputs">
+					<p>
+						<label for="email">{maillabel}</label> 
+						<input name="email" id="email" class="text" title="{mailinfo}" alt="{mailinfo}" type="text" value="{mailvalue}">
+					</p>
+					<p>
+						<label for="password">{pwslabel}</label> 
+						<input name="password" id="password" class="text" title="{pwsinfo}" alt="{pwsinfo}" type="password">
+					</p>	
+					
+					<p class="small">
+						
+						<span class="keeper">
+							<input name="keep" id="keep" alt="{rememberme}" title="{rememberme}" type="checkbox"> 
+							<label for="keep">{rememberme}</label>
+						</span>
+						<br/>
+						<p class="right">
+							<a name="{register}" title="{register}" alt="{register}" href="{url}?/user/add/" >{register}</a> | <a name="{forgot}" title="{forgot}" alt="{forgot}" href="{url}?/login/forgot/">{forgot}</a>
+						</p>
+					</p>
+				</fieldset>
+				{WRAP-HERE}
+				<fieldset class="buttons">
+					<p>
+						
+						<!-- <input src="/common/images/sign_in_form.png" class="sign_in" title="Sign in" type="image"> -->
+						<input type="submit" value="{logbutton}" alt="{logbutton}" title="{logbutton}" class="submit">
+					</p>
+				</fieldset>
+				
+				
+			</form>
+	</div>
+<!-- 
+	TODO: 
+		  -add optional and non-blocking js for form navigation
+		  
+-->

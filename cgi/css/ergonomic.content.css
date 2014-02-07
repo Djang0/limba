@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+/**
+ * Project : Limba
+ * File : ergonomic.content.css
+ * Created by Ludovic Reenaers
+ * Created on  22 mar. 2011
+ * 
+ * Project site : http://code.google.com/p/limba
+ */
+ 
+ /**
+ * Here is the place to write data content css for documents / categories display.
+ *font-family: "Choix 1", choix2, "Choix 3", générique;
+ */
+ #data {font-size:120%;font-family: "Bitstream Vera Sans Mono",Verdana, "DejaVu Sans",  Geneva, sans-serif; }
+ 
+ h1, h2, h3,h4,h5,h6{color:white;font-weight: bolder;font-family: "Times New Roman", Times, "Liberation Serif", FreeSerif, serif;}
+ h1{font-size:500%;}
+ h2{font-size:450%;}
+ h3{font-size:425%;}
+ h4{font-size:400%;}
+ h5{font-size:375%;}
+ h6{font-size:350%;}
+ b{font-weight: bolder;font-size:120%;}
+ abbr, acronym
+{
+	border-bottom: 1px dashed #999;
+	cursor: help;
+	padding:0px;
+	font-size:120%;
+	font-family: "Bitstream Vera Sans Mono",Verdana, "DejaVu Sans",  Geneva, sans-serif;
+}
+
+
+#data p{margin:10px;font-size:120%}
+
+fieldset{
+	border-color:#0097D4;
+	margin: 10px;
+	padding:10px;
+	background: #222;
+	font-family: Georgia, "DejaVu Serif", Norasi, serif;
+	font-size:120%
+}
+legend{
+	padding:5px;
+	color: #80cbea ;
+	font-size:120%
+}
+input[type="text"],input[type="password"],input[type="file"],input[type="button"],input[type="reset"],input[type="submit"],textarea{
+	background: #191919 ;
+	border-color:#424242;
+	color: white;
+	font-size:120%;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:10px;
+	padding-right:10px;
+	}
+ 
+select{
+	font: 14px "Microsoft Sans Serif" , Arial;
+	border-color:#424242;
+	vertical-align: middle;
+	color: white;
+	background-color: #191919;
+}
+div#leftCol{padding-left:0px;margin-top: 5px;font-weight: bolder;font-size:150%;border:1px solid #262425;margin-right:10px;padding-top:20px;padding-bottom:20px;margin-left:0px;width:225px}
+
+ul.menu li{margin-left:15px;padding-top:5px;}
+ul.menu li.opened a{background: transparent url('/img/limba/opened.png') no-repeat scroll 2px top;padding-left:16px;color:#262425;}
+ul.menu li.opened span a{background: transparent url('/img/limba/closed.png') no-repeat scroll 2px top;padding-left:16px;color:#262425;}
+ul.menu span a{background: transparent url('/img/limba/closed.png') no-repeat scroll 2px top;padding-left:16px;color:#262425;}
+ul.menu li a:hover, ul.menu li a:focus,ul.menu li span a:hover, ul.menu li span a:focus {color:white;}

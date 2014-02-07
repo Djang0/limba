@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+/**
+ * Project : Limba
+ * File : showLogin.css
+ * Created by Ludovic Reenaers
+ * Created on  21 oct. 2010
+ * 
+ * Project site : http://code.google.com/p/limba
+ */
+#loginForm{
+	width:45%;
+}
+#loginForm h2{
+	color: #353431;
+	font-size: 1.6em;
+	margin-bottom: 9px;
+	padding-top: 7px;
+	padding-right: 0pt;
+	padding-bottom: 4px;
+	padding-left: 35px;
+	background-color: transparent;
+	background-image: url(/img/internals/avatar.png);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 0pt 50%;
+}
+#loginForm label{
+	color: #666666;
+	display: block;
+	font-weight: bold;
+	float: left;
+	padding-top: 6px;
+	padding-right: 10px;
+	padding-bottom: 0pt;
+	padding-left: 0pt;
+	text-align: right;
+	width: 130px;
+}
+#loginForm .keeper label{
+	color: #666666;
+	display: inline;
+	font-size:12px;
+	float: none;
+}
+#loginForm input.code{
+	border-top-width: 2px;
+	border-right-width-value: 2px;
+	border-right-width-ltr-source: physical;
+	border-right-width-rtl-source: physical;
+	border-bottom-width: 2px;
+	border-left-width-value: 2px;
+	border-left-width-ltr-source: physical;
+	border-left-width-rtl-source: physical;
+	border-top-style: inset;
+	border-right-style-value: inset;
+	border-right-style-ltr-source: physical;
+	border-right-style-rtl-source: physical;
+	border-bottom-style: inset;
+	border-left-style-value: inset;
+	border-left-style-ltr-source: physical;
+	border-left-style-rtl-source: physical;
+	border-top-color: white;
+	border-right-color-value: white;
+	border-right-color-ltr-source: physical;
+	border-right-color-rtl-source: physical;
+	border-bottom-color: white;
+	border-left-color-value: white;
+	border-left-color-ltr-source: physical;
+	border-left-color-rtl-source: physical;
+	background-color: white;
+	color: black;
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	height: 25px;
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+	width: 100px;
+	vertical-align: middle;
+}
+#loginForm input.text{
+	border-top-width: 2px;
+	border-right-width-value: 2px;
+	border-right-width-ltr-source: physical;
+	border-right-width-rtl-source: physical;
+	border-bottom-width: 2px;
+	border-left-width-value: 2px;
+	border-left-width-ltr-source: physical;
+	border-left-width-rtl-source: physical;
+	border-top-style: inset;
+	border-right-style-value: inset;
+	border-right-style-ltr-source: physical;
+	border-right-style-rtl-source: physical;
+	border-bottom-style: inset;
+	border-left-style-value: inset;
+	border-left-style-ltr-source: physical;
+	border-left-style-rtl-source: physical;
+	border-top-color: white;
+	border-right-color-value: white;
+	border-right-color-ltr-source: physical;
+	border-right-color-rtl-source: physical;
+	border-bottom-color: white;
+	border-left-color-value: white;
+	border-left-color-ltr-source: physical;
+	border-left-color-rtl-source: physical;
+	background-color: white;
+	color: black;
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	height: 25px;
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+	width: 241px;
+	vertical-align: middle;
+}
+#loginForm fieldset.buttons p{
+	padding-right: 34px;
+	}
+#loginForm p.small{
+	font-size: small;
+	text-align: center;
+	padding-right: 15px;
+}
+#loginForm p.right{
+	font-size: small;
+	text-align: right;
+	padding-right: 40px;
+}
+
+#loginForm input.submit{
+	float:right;
+	
+}

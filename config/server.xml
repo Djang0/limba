@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE server SYSTEM "server.dtd">
+<server>
+        <db>mysql:host=localhost;dbname=limba;charset=utf8</db>
+        <usr>root</usr>
+        <pws>makemyday</pws>
+        <publicCatId>12</publicCatId>
+        <rootCatId>1</rootCatId>
+        <contactCatId>3</contactCatId>
+        <HomepageId>1</HomepageId>
+        <HomepageCatId>12</HomepageCatId>
+        <encoding>UTF-8</encoding>
+        <controler>/index.php</controler>
+        <siteurl>http://data</siteurl>
+        <sitename>limba</sitename>
+        <sitetitle>Limba</sitetitle>
+        <info>ludovic.reenaers@gmail.com</info>
+        <noreply>ludovic.reenaers@gmail.com</noreply>
+        <layout name="embed">
+                <logourl>/img/user/wdge.png</logourl>
+                <basetemplate>html/templates/EMBED</basetemplate>
+                <maxRecurse>0</maxRecurse>
+                <generators>
+                      
+                </generators>
+        </layout>
+        <layout name="xml">
+                <logourl>/img/user/wdge.png</logourl>
+                <basetemplate>html/templates/EMBED</basetemplate>
+                <maxRecurse>0</maxRecurse>
+                <generators>
+                      
+                </generators>
+        </layout>
+        <layout name="admin">
+                <logourl>/img/user/logo.png</logourl>
+                <basetemplate>html/templates/ADMIN</basetemplate>
+                <maxRecurse>0</maxRecurse>
+                <generators>
+                                <FileContentGenerator>
+                                        <file>html/encodings/XHTML1.0T</file>
+                                        <substitutiontag>DOCTYPE</substitutiontag>
+                                </FileContentGenerator>
+                                <FileContentGenerator>
+                                        <file>html/headers/BASE</file>
+                                        <substitutiontag>METAHEAD</substitutiontag>
+                                </FileContentGenerator>
+                                <ClassGenerator>
+										<classname>OldAdminMenuTreeGenerator</classname>
+                                        <substitutiontag>MENUG</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>UserPadGenerator</classname>
+                                        <substitutiontag>USERPAD</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>NotifyGenerator</classname>
+                                        <substitutiontag>NOTIFY</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>AdminBreadCrumbGenerator</classname>
+                                        <substitutiontag>PATHWAY</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>HtmlHeadAdminScriptsGenerator</classname>
+                                        <substitutiontag>SCRIPTS</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>AdminBannerGenerator</classname>
+                                        <substitutiontag>ADMHEADER</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>TitleGenerator</classname>
+                                        <substitutiontag>TITLE</substitutiontag>
+                                </ClassGenerator>
+                </generators>
+        </layout>
+        <layout name="index">
+                <logourl>/img/user/wdge.png</logourl>
+                <basetemplate>html/templates/ERGONOMIC</basetemplate>
+                <maxRecurse>0</maxRecurse>
+                        <generators>
+                                <FileContentGenerator>
+                                        <file>html/encodings/XHTML1.0T</file>
+                                        <substitutiontag>DOCTYPE</substitutiontag>
+                                </FileContentGenerator>
+                                <FileContentGenerator>
+                                        <file>html/headers/BASE</file>
+                                        <substitutiontag>METAHEAD</substitutiontag>
+                                </FileContentGenerator>
+                                <ClassGenerator>
+                                        <classname>BreadCrumbGenerator</classname>
+                                        <substitutiontag>BREADCRUMB</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>DynamicMenuTreeGenerator</classname>
+                                        <substitutiontag>LEFTMENU</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>HeaderGenerator</classname>
+                                        <substitutiontag>HEADER</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>NotifyGenerator</classname>
+                                        <substitutiontag>NOTIFY</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>BreadCrumbGenerator</classname>
+                                        <substitutiontag>PATHWAY</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>LanguagePadGenerator</classname>
+                                        <substitutiontag>LANGUAGES</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>HtmlHeadScriptsGenerator</classname>
+                                        <substitutiontag>SCRIPTS</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>TitleGenerator</classname>
+                                        <substitutiontag>TITLE</substitutiontag>
+                                </ClassGenerator>
+                                <ClassGenerator>
+                                        <classname>FooterGenerator</classname>
+                                        <substitutiontag>FOOTER</substitutiontag>
+                                </ClassGenerator>
+                              
+                        </generators>
+        </layout>
+
+</server>
+

@@ -1,0 +1,21 @@
+<div><h2>{title}</h2></div>
+<div id="forgotForm">
+		
+		{ERROR-HERE}
+			<form  ACCEPT-CHARSET="{encoding}" name="forgot" action="{url}?/login/remind/" method="post">
+				<fieldset class="inputs">
+					<p>
+						<label for="email">{maillabel}</label> 
+						<input name="email" id="email" class="text" title="{mailinfo}" alt="{mailinfo}" type="text" >
+					</p>
+					</fieldset>
+				<fieldset class="buttons">
+					<p>
+						<input type="submit" value="{forgotbutton}" alt="{forgotbutton}" title="{forgotbutton}" class="submit">
+					</p>
+				</fieldset>
+				
+				
+			</form>
+	</div>
+	

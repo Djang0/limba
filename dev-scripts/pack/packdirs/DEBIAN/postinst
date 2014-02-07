@@ -1,0 +1,142 @@
+#!/bin/sh
+# postinst script for Limba
+
+# cause script to stop immediatly on error
+set -e
+
+avahi_install() {
+# si /etc/avahi/services/ est un répertoire and (-a) /etc/avahi/services/phpmyadmin.service  n'existe pas and (-a) /etc/avahi/services/phpmyadmin.service n'est pas symlink
+	if [ -d /etc/avahi/services/ -a ! -e /etc/avahi/services/limba.service -a ! -L /etc/avahi/services/limba.service ] ; then
+		#creer un symlink de /etc/phpmyadmin/phpmyadmin.service dans  /etc/avahi/services/
+		ln -s /etc/limba/limba.service /etc/avahi/services/
+	fi
+}
+
+desktop_install() {
+	if [ -d /usr/share/applications/ -a ! -e /usr/share/applications/limba.desktop -a ! -L /usr/share/applications/limba.desktop ] ; then
+		ln -s /etc/limba/limba.desktop /usr/share/applications/
+	fi
+}
+
+lighttpd_install() {
+	if [ ! -f /etc/lighttpd/conf-available/50-phpmyadmin.conf ] ; then
+		if which lighty-enable-mod >/dev/null 2>&1 ; then
+			ln -s /etc/limba/lighttpd.conf /etc/lighttpd/conf-available/50-limba.conf
+			# We also need auth to protect setup.php
+			#lighty-enable-mod phpmyadmin auth fastcgi
+			avahi_install
+            desktop_install
+		else
+			echo "Lighttpd not installed, skipping"
+		fi
+	fi
+}
+
+apache_install() {
+	webserver=$1
+	if [ -d /etc/$webserver/sites-available ] && [ ! -e /etc/$webserver/sites-available/limba ]; then
+		ln -s /etc/limba/apache.conf /etc/$webserver/sites-available/limba
+		a2ensite limba
+		avahi_install
+        desktop_install
+	fi
+}
+
+. /usr/share/debconf/confmodule
+
+. /usr/share/dbconfig-common/dpkg/postinst.mysql
+dbc_generate_include_owner="root:www-data"
+dbc_generate_include_perms="0640"
+dbc_generate_include=php:/etc/limba/config-db.php
+
+if ! dbc_go limba $@ ; then
+	echo 'Automatic configuration using dbconfig-common failed!'
+fi
+
+if [ "$1" = "configure" ]; then
+
+	# Generate secret for cookie encryption
+	if [ ! -f /var/lib/limba/blowfish_secret.inc.php ]; then
+		touch /var/lib/limba/blowfish_secret.inc.php
+		chgrp www-data /var/lib/limba/blowfish_secret.inc.php
+		chmod 640 /var/lib/limba/blowfish_secret.inc.php
+		printf "<?php\n\$cfg['blowfish_secret'] = '%s';\n" \
+		`perl -le 'print map{("a".."z","A".."Z",0..9)[int(rand(62))]}(1..24)'` \
+			>> /var/lib/limba/blowfish_secret.inc.php
+	fi
+
+	db_version 2.0
+
+	# The following only on a new install
+	if [ "$2" = "" ]; then
+
+		# Generate an htpasswd file for the web based setup
+		if [ ! -f /etc/limba/htpasswd.setup ]; then
+
+			touch /etc/limba/htpasswd.setup
+			chgrp www-data /etc/limba/htpasswd.setup
+			chmod 0640 /etc/limba/htpasswd.setup
+			db_get limba/setup-username
+			setup_username=${RET:-admin}
+			db_get limba/setup-password
+			if [ -n "$RET" ]; then
+				setup_password=`perl -le 'print crypt($ARGV[0], join("", map{("a".."z","A".."Z",0..9)[int(rand(62))]}(1..2)))' "$RET"`
+			else
+				setup_password="*"
+			fi
+			echo "$setup_username:$setup_password" > /etc/limba/htpasswd.setup
+			db_reset limba/setup-username || true
+			db_reset limba/setup-password || true
+
+			if [ ! -f /var/lib/limba/config.inc.php ]; then
+				touch /var/lib/limba/config.inc.php
+				chgrp www-data /var/lib/limba/config.inc.php
+				chmod 0640 /var/lib/limba/config.inc.php
+			fi
+
+		fi
+
+	fi
+
+    # Fixup permissions
+    if [ -f /var/lib/limba/config.inc.php ]; then
+        chmod 0640 /var/lib/limba/config.inc.php
+    fi
+    if [ -d /etc/limba/siteconf/cache/ ]; then
+        chown -R www-data:www-data /etc/limba/siteconf/cache/
+    fi
+	if ! dpkg-statoverride --list /var/lib/pyicqt >/dev/null; then
+		chown -R www-data:www-data    /var/lib/limba/tmp
+	fi
+
+	# Configure Apache
+	db_get limba/reconfigure-webserver
+
+	webservers="$RET"
+	
+	
+	for webserver in $webservers; do
+		
+		webserver=${webserver%,}
+		if [ "$webserver" = "lighttpd" ] ; then
+			lighttpd_install
+		else
+			apache_install $webserver
+		fi
+		# Reload webserver in any case, configuration might have changed
+		# Redirection of 3 is needed because Debconf uses it and it might 
+		# be inherited by webserver. See bug #446324.
+        if [ -f /etc/init.d/$webserver ] ; then
+            if [ -x /usr/sbin/invoke-rc.d ]; then
+                invoke-rc.d $webserver reload 3>/dev/null || true
+            else
+                /etc/init.d/$webserver reload 3>/dev/null || true
+            fi
+        fi
+	done
+fi
+sed -i "s/{{{usr}}}/$dbc_dbuser/g" /etc/limba/siteconf/server.xml
+sed -i "s/{{{pws}}}/$dbc_dbpass/g" /etc/limba/siteconf/server.xml
+
+exit 0
+

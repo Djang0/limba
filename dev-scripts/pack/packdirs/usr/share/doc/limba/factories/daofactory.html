@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Thu, 14 Apr 2011 13:53:20 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+<link rel="start" href="../../overview-summary.html">
+
+<title>DAOFactory (Limba API)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Limba - CMS</h1>
+<ul>
+<li><a href="../../overview-summary.html">Overview</a></li>
+<li><a href="../../limba/factories/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../../limba/factories/package-tree.html">Tree</a></li>
+<li><a href="../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../todo-list.html">Todo</a></li>
+<li><a href="../../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../../index.html" target="_top">Frames</a>
+<a href="../../limba/factories/daofactory.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">limba.factories\DAOFactory</div>
+<div class="location">factories/DAOFactory.php at line 10</div>
+<h1>Class DAOFactory</h1>
+
+<pre class="tree"><strong>DAOFactory</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>DAOFactory</strong></p>
+
+<div class="comment" id="overview_description"><p></p></div>
+
+<dl>
+<dt>Author:</dt>
+<dd>Ludovic Reenaers</dd>
+<dt>Since:</dt>
+<dd>24 janv. 2009</dd>
+<dt>See Also:</dt>
+<dd><code><a href="http://code.google.com/p/limba">http://code.google.com/p/limba</a></code></dd>
+</dl>
+<hr>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#__construct()">__construct</a>(mixed params)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getCategoryDAO()">getCategoryDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getCategoryInfoDAO()">getCategoryInfoDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getDocumentDAO()">getDocumentDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getDocumentInfoDAO()">getDocumentInfoDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getGroupDAO()">getGroupDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getLangueDAO()">getLangueDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getLangueLabelDAO()">getLangueLabelDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getListeDAO()">getListeDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getListeValueDAO()">getListeValueDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getProfileDAO()">getProfileDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getPropertyDAO()">getPropertyDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getPropertyInfoDAO()">getPropertyInfoDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getPropertyValueDAO()">getPropertyValueDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getTokenDAO()">getTokenDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getTokenPackDAO()">getTokenPackDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getTranslationDAO()">getTranslationDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getTypeDocumentDAO()">getTypeDocumentDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getTypePropertyDAO()">getTypePropertyDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getUserDAO()">getUserDAO</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getWordDAO()">getWordDAO</a>()</p></td>
+</tr>
+</table>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">factories/DAOFactory.php at line 38</div>
+<h3 id="__construct()">__construct</h3>
+<code class="signature">public  void <strong>__construct</strong>(mixed params)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 149</div>
+<h3 id="getCategoryDAO()">getCategoryDAO</h3>
+<code class="signature">public  void <strong>getCategoryDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 156</div>
+<h3 id="getCategoryInfoDAO()">getCategoryInfoDAO</h3>
+<code class="signature">public  void <strong>getCategoryInfoDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 163</div>
+<h3 id="getDocumentDAO()">getDocumentDAO</h3>
+<code class="signature">public  void <strong>getDocumentDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 170</div>
+<h3 id="getDocumentInfoDAO()">getDocumentInfoDAO</h3>
+<code class="signature">public  void <strong>getDocumentInfoDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 62</div>
+<h3 id="getGroupDAO()">getGroupDAO</h3>
+<code class="signature">public  void <strong>getGroupDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 134</div>
+<h3 id="getLangueDAO()">getLangueDAO</h3>
+<code class="signature">public  void <strong>getLangueDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 141</div>
+<h3 id="getLangueLabelDAO()">getLangueLabelDAO</h3>
+<code class="signature">public  void <strong>getLangueLabelDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 76</div>
+<h3 id="getListeDAO()">getListeDAO</h3>
+<code class="signature">public  void <strong>getListeDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 83</div>
+<h3 id="getListeValueDAO()">getListeValueDAO</h3>
+<code class="signature">public  void <strong>getListeValueDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 91</div>
+<h3 id="getProfileDAO()">getProfileDAO</h3>
+<code class="signature">public  void <strong>getProfileDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 99</div>
+<h3 id="getPropertyDAO()">getPropertyDAO</h3>
+<code class="signature">public  void <strong>getPropertyDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 106</div>
+<h3 id="getPropertyInfoDAO()">getPropertyInfoDAO</h3>
+<code class="signature">public  void <strong>getPropertyInfoDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 113</div>
+<h3 id="getPropertyValueDAO()">getPropertyValueDAO</h3>
+<code class="signature">public  void <strong>getPropertyValueDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 120</div>
+<h3 id="getTokenDAO()">getTokenDAO</h3>
+<code class="signature">public  void <strong>getTokenDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 127</div>
+<h3 id="getTokenPackDAO()">getTokenPackDAO</h3>
+<code class="signature">public  void <strong>getTokenPackDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 177</div>
+<h3 id="getTranslationDAO()">getTranslationDAO</h3>
+<code class="signature">public  void <strong>getTranslationDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 55</div>
+<h3 id="getTypeDocumentDAO()">getTypeDocumentDAO</h3>
+<code class="signature">public  void <strong>getTypeDocumentDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 48</div>
+<h3 id="getTypePropertyDAO()">getTypePropertyDAO</h3>
+<code class="signature">public  void <strong>getTypePropertyDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 69</div>
+<h3 id="getUserDAO()">getUserDAO</h3>
+<code class="signature">public  void <strong>getUserDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">factories/DAOFactory.php at line 184</div>
+<h3 id="getWordDAO()">getWordDAO</h3>
+<code class="signature">public  void <strong>getWordDAO</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Limba - CMS</h1>
+<ul>
+<li><a href="../../overview-summary.html">Overview</a></li>
+<li><a href="../../limba/factories/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../../limba/factories/package-tree.html">Tree</a></li>
+<li><a href="../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../todo-list.html">Todo</a></li>
+<li><a href="../../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../../index.html" target="_top">Frames</a>
+<a href="../../limba/factories/daofactory.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">Project: <a href=http://www.limba-cms.eu/>Limba</a> (Limba Integrates and Models your Business Artefacts) | This document was generated by <a href=http://peej.github.com/phpdoctor/>PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

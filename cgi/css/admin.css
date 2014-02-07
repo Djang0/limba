@@ -1,0 +1,185 @@
+@CHARSET "UTF-8";
+/**
+ * Project : Limba
+ * File : admin.css
+ * Created by Ludovic Reenaers
+ * Created on  21 oct. 2010
+ * 
+ * Project site : http://code.google.com/p/limba
+ */
+ textarea{
+	padding:4px;
+ }
+.headbg {
+margin: 0px 8px;
+}
+.gbh {
+top: 15px;
+border-top: 1px solid #C9D7F1;
+font-size: 1px;
+height: 0px;
+position: absolute;
+width: 100%;
+}
+strong, b {
+font-weight: bolder;
+}
+#gaia a {
+color: #00C;
+text-decoration: none;
+}
+#gaia {
+text-align: right;
+}
+table {
+border-collapse: separate;
+}
+tbody {
+border-color: inherit;
+display: table-row-group;
+vertical-align: middle;
+}
+#plogo {
+text-align: center;
+vertical-align: bottom;
+width: 55px;
+}
+img {
+border: 0px;
+}
+#pname {
+font-size: 100%;
+margin: 0px;
+padding: 0px;
+}
+#pname a, #pname a:visited {
+color: #666;
+text-decoration: none;
+font-size: 300%;
+}
+#project_summary_link {
+color: #444;
+text-decoration: none;
+}
+form {
+margin: 0px;
+padding: 0px;
+}
+select, input {
+font-family: arial, sans-serif;
+}
+input[type="text"] {
+border-color: #999 #CCC #CCC;
+border-style: solid;
+border-width: 1px;
+padding: 2px 1px;
+}
+input {
+padding-left: 1px;
+padding-right: 1px;
+}
+
+
+
+.gtb {
+background: #dedede;
+border-bottom: 1px solid #6B90DA;
+padding: 5px 10px 0px 5px;
+white-space: nowrap;
+display: block;
+}
+.gtb .tab {
+color: #00C;
+cursor: pointer;
+float: left;
+margin: 5px 15px 6px 10px;
+}
+.gtb .active {
+background: white;
+border-bottom: 0px;
+border: 1px solid #6B90DA;
+color: black;
+cursor: default;
+font-weight: bold;
+margin: 0px 5px -1px 0px;
+padding: 5px 9px 6px;
+text-decoration: none;
+}
+.gtb .gtbc {
+clear: left;
+}
+select.lsBox{
+	width:18em;
+	height:15em;
+	margin:15px;
+	}
+fieldset{
+margin:20px;
+padding-left:50px;
+background-color:#DEDEDE;
+border:3px solid #C9D7F1;
+}
+legend{
+	font-size:180%;
+	color:#666;
+	}
+table#content{width:100%;}
+div#BreadCrumb{text-align: left;}
+.crumbs {border:1px solid #dedede;height:2.3em;}
+.crumbs li {float:left;line-height:2.3em;padding-left:.75em;color:#777;}
+.crumbs li a {display:block;padding:0 15px 0 0;background:url(/img/internals/crumbs.gif) no-repeat right center;}
+.crumbs li a:link, .crumbs li a:visited {text-decoration:none;color:#777;}
+.crumbs li a:hover, .crumbs li a:focus {color:#36C;}
+.centered{text-align:center;}
+td#menu{width:auto;vertical-align: top;font-size: 160%;}
+td#menu div#fileTree{padding-left:12px;margin-top: 20px;}
+td#menu ul{padding-left:12px;margin-top: 10px;}
+td#menu li.opened a{background: transparent url(/img/internals/opened.gif) no-repeat scroll 4px top;padding-left:14px;}
+td#menu li.opened span a{background: transparent url(/img/internals/closed.gif) no-repeat scroll 4px top;padding-left:14px;}
+td#menu span a{background: transparent url(/img/internals/closed.gif) no-repeat scroll 4px top;padding-left:14px;}
+td#main{padding-left:0px;padding-right: 0px;padding-top: 0px;padding-bottom: 0px;vertical-align: top;width:83%;}
+div#editTools{float:left}
+div#accessType{float:left}
+table.rights{border:solid 1px;float:left;}
+.desc a{color: #444;text-decoration: none;font-size: 120%;}
+.title a{color: #666;font-size: 300%;text-decoration: none;}
+div#summary{float:left;width: 99%;}
+.icons{padding-top:6px;border-bottom: #C9D7F1 solid 1px;padding-bottom: 6px;color: #444;font-size: 100%;padding-right: 6px;}
+.bottomicons{padding-top:20px;}
+div#listing{margin-top:5px;border:#C9D7F1 solid 4px;padding-top:8px;padding-bottom:25px;padding-left:4px;padding-right:4px;}
+div.folder{border: #C9D7F1 solid 2px;width:auto;padding-bottom: 4px;padding-top: 4px;background-color:#DEDEDE;}
+div.document{border-bottom: #C9D7F1 solid 1px;padding-bottom: 4px;padding-top: 4px;}
+div.folder a{color: #666;font-size: 220%;text-decoration: none;margin-left:3px;font-weight: bolder;}
+div.document a{color: #444;font-size: 150%;font-style:italic;text-decoration: none;margin-left:3px;}
+div.subtitle{color: #666;font-size: 150%;text-decoration: none;margin-top:20px;}
+div.dates{float:right;color: #444}
+div#Document{margin-top:5px;border:#C9D7F1 solid 4px;padding:10px;}
+div#Document h2{color:#C9D7F1;padding-bottom: 10px;font-size: 200%;}
+div#Document p{font-size: 110%;}
+.details{float:right;color: #444;}
+span.own{background-color: #C9D7F1;}
+span.grp{}
+span.oth{background-color: #C9D7F1;}
+div#selector{vertical-align: middle;text-align: center;}
+div#selector select{font-size: 150%;margin-bottom: 25px;}
+div#selector h1{font-size: 200%;margin-bottom: 25px;}
+/*Tabbed Navigation css */
+div.inactive {display: none;}
+ol#toc { top:0px;background: #C9D7F1 ;font-size: 10pt;height: 2.5em;list-style: none;margin:0px;overflow: hidden;padding: 0 60px 0 25px;position: relative;width: auto;}
+ol#toc a {background: #9b9b9b url;color: #444;display: block;float: left;height: 2.5em;padding-left: 5px;text-decoration: none;}
+ol#toc a:hover {background-color: #d8d8d8;background-position: 0 -120px;color: #B1342F;}
+ol#toc a:hover span {background-position: 100% -120px;}
+ol#toc a:hover .active,ol#toc a.active {background-color: #f8f8f8;background-position: 0 -60px;color: #222;font-weight: bold;}
+ol#toc a:hover .active span,ol#toc a.active span {background-position: 100% -60px;}
+ol#toc li {float: left;margin: 0 3px 0 0;}
+ol#toc span {background:  100% 0;cursor: pointer;display: block;float: left;line-height: 2em;padding: .5em 5px 0 0;}
+/*SecuritySet css*/
+fieldset.perm{display: inline;padding-bottom: 1px;padding-left: 1px;padding-right: 1px;padding-top: 1px;}
+fieldset{display: block;padding-bottom: 5px;padding-left: 5px;padding-right: 5px;padding-top: 5px;margin-top:10px}
+/*Modal Window CSS*/
+#fade {display: none;background: #000;position: fixed; left: 0; top: 0;width: 100%; height: 100%;opacity: .80;z-index: 9999;}
+.popup_block{display: none;background: #fff;padding: 20px;border: 20px solid #ddd;float: left;position: fixed;top: 50%; left: 50%;z-index: 99999;-webkit-box-shadow: 0px 0px 20px #000;-moz-box-shadow: 0px 0px 20px #000;box-shadow: 0px 0px 20px #000;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;}
+img.btn_close {float: right;margin: -55px -55px 0 0;}
+/*--Making IE6 Understand Fixed Positioning--*/
+*html #fade {position: absolute;}
+*html .popup_block {position: absolute;}

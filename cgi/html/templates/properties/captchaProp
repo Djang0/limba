@@ -1,0 +1,18 @@
+<tr>
+	<td>
+	{labelprop}
+	</td>
+	<td>
+	<p class="right">
+		<img src="/external/securimage/securimage_show2.php" id="captcha" alt="{code}" title="{code}"/>
+	</p>
+	<p class="right">
+		<input type="text" title="{codeinfo}" alt="{codeinfo}" name="{inputName}" size="10" maxlength="6" class="code" />
+	</p>
+	<p><a href="/external/securimage/securimage_play.php" style="font-size: 13px"><img src="/img/internals/audio3.png" width="24px" height="24px" alt="(Audio)" title="(Audio)"/></a></p>
+	<p class="right">
+		<script>function doit(imgitem){imgitem.src='/external/securimage/securimage_show.php';}</script>
+		<a href="" name="{reloadimg}" title="{reloadimg}" alt="{reloadimg}" onclick="doit(document.getElementById('captcha'));">{reloadimg}</a>
+	</p>
+	</td>
+<tr>

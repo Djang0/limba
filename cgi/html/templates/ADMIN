@@ -1,0 +1,43 @@
+DOCTYPE
+
+	<head>
+	
+	METAHEAD
+	SCRIPTS
+	TITLE
+	
+	</head>
+
+	<body>
+		<div class="headbg">
+			USERPAD
+			<div class="gbh" style="left: 0pt;"></div>
+			<div class="gbh" style="right: 0pt;"></div>
+			<div style="height: 1px"></div>
+			ADMHEADER
+		</div>
+		<div id="mt" class="gtb"> 
+ 			<a href="/p/limba/source/checkout" class="tab active">Content</a>
+ 			<div class="gtbc"></div>
+		</div>
+		<table id="content">
+			<tr>
+				<td colspan="2">
+					PATHWAY
+				</td>
+			</tr>
+			<tr>
+				<td id="menu"> 
+					MENUG
+				</td>
+				<td id="main">
+					NOTIFY
+					<div id="summary">
+						CONTENT
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>

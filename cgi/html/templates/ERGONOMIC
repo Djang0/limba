@@ -1,0 +1,33 @@
+DOCTYPE
+<head>
+	METAHEAD
+	SCRIPTS
+	TITLE
+</head>
+<body>
+	<div id="page">
+		<div id="topBar">
+			LANGUAGES
+		</div>
+		<div id="headerBar">
+			HEADER
+		</div>
+		<div id="crumbBar">
+			BREADCRUMB
+		</div>
+		<div id="leftCol">
+			LEFTMENU
+		</div>
+		<div id="content">
+			NOTIFY
+			<div id="data">
+			CONTENT
+			</div>
+			<div id="footBar">
+				FOOTER
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

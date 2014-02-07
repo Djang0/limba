@@ -1,0 +1,27 @@
+<!ELEMENT server    (db,usr,pws,publicCatId,rootCatId,contactCatId,HomepageId,HomepageCatId,encoding,controler,siteurl,sitename,sitetitle,info,noreply,layout+)>
+<!ELEMENT db          (#PCDATA)>
+<!ELEMENT usr          (#PCDATA)>
+<!ELEMENT pws         (#PCDATA)>
+<!ELEMENT publicCatId          (#PCDATA)>
+<!ELEMENT rootCatId          (#PCDATA)>
+<!ELEMENT contactCatId          (#PCDATA)>
+<!ELEMENT HomepageId          (#PCDATA)>
+<!ELEMENT HomepageCatId          (#PCDATA)>
+<!ELEMENT encoding    (#PCDATA)>
+<!ELEMENT controler   (#PCDATA)>
+<!ELEMENT siteurl   (#PCDATA)>
+<!ELEMENT sitename   (#PCDATA)>
+<!ELEMENT sitetitle   (#PCDATA)>
+<!ELEMENT info   (#PCDATA)>
+<!ELEMENT noreply   (#PCDATA)>
+<!ELEMENT layout    (logourl,basetemplate,maxRecurse,generators)>
+<!ATTLIST layout name (index|admin|embed|xml|pdf) "index">
+<!ELEMENT logourl   (#PCDATA)>
+<!ELEMENT basetemplate   (#PCDATA)>
+<!ELEMENT maxRecurse   (#PCDATA)>
+<!ELEMENT generators    (ClassGenerator | FileContentGenerator)*>
+<!ELEMENT ClassGenerator   (classname,substitutiontag)>
+<!ELEMENT classname   (#PCDATA)>
+<!ELEMENT substitutiontag   (#PCDATA)>
+<!ELEMENT FileContentGenerator   (file,substitutiontag)>
+<!ELEMENT file   (#PCDATA)>

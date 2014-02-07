@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Limba
+Comment=PHP / Mysql CMS
+Exec=sensible-browser http://localhost/limba/
+Terminal=false
+Type=Application
+Icon=limba
+Categories=Development;Web;

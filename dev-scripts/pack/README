@@ -1,0 +1,26 @@
+sudo apt-get install dpkg-sig
+
+$ gpg --list-keys
+/home/ludo/.gnupg/pubring.gpg
+-----------------------------
+pub   2048R/77B2E5F6 2011-10-20
+uid                  Ludovic Reenaers (Limba Project Owner) <lreenaers@ressource-toi.org>
+sub   2048R/EBC2F73E 2011-10-20
+
+
+vim ~/.devscripts
+
+DEBSIGN_MAINT="Ludovic Reenaers"
+DEBSIGN_KEYID=0x77B2E5F6
+
+DEBUILD_PRESERVE_ENV=yes
+DEBUILD_ROOTCMD=fakeroot
+
+vim ~/.bashrc
+
+export DEBEMAIL="lreenaers@ressource-toi.org"
+export=77B2E5F6
+
+./pack.sh /source/dir /target/dir limba 0.1
+
+dpkg-sig --sign maintainer limba-0.1.deb
