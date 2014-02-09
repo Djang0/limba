@@ -11,3 +11,4 @@ class TitleGenerator extends Generator{
 		$this->content = '<title>'.$this->params['title'].'</title>';
 	}
 }
+?>
