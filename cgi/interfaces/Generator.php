@@ -20,6 +20,6 @@ abstract class Generator{
 		$this->setUp();
 		return $this->content;
 	}
-	abstract protected function setUp();
+	abstract function setUp();
 }
 ?>
