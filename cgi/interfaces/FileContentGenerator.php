@@ -7,7 +7,7 @@
  */
 
 class FileContentGenerator extends Generator{
-	private $file;
+	protected $file;
 	function __construct($params, $factory, $file){
 		parent::__construct($params, $factory);
 		$this->file = $file;
