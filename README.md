@@ -1,4 +1,4 @@
 limba
 =====
 
-Free lighweight CMS
+Free lightweight CMS
